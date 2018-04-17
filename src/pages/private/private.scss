@@ -1,0 +1,24 @@
+page-private {
+    .profile-picture {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 40px;
+        .image {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            margin: 10px;
+            border-radius: 50%;
+        }
+    }
+    .close-session {
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+        margin: 0;
+        .input-wrapper {
+            color: color($colors, 'danger');
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<h2>Registro</h2>
+
+<form [formGroup]="singupForm" novalidate (ngSubmit)="singUp()">
+  
+  <ion-item>
+    <ion-label floating>Nombre de usuario</ion-label>
+    <ion-input type="text" formControlName="user"></ion-input>
+  </ion-item>
+  <label class="input-error" *ngIf="singupForm.get('user').dirty && singupForm.get('user').hasError('required')">*Este campo es requerido</label>
+  
+  <ion-item>
+    <ion-label floating>Correo electrónico</ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+  </ion-item>
+  <label class="input-error" *ngIf="singupForm.get('email').dirty && singupForm.get('email').hasError('required')">*Este campo es requerido</label>
+  <label class="input-error" *ngIf="singupForm.get('email').dirty && singupForm.get('email').touched && singupForm.get('email').hasError('pattern')">*Correo inválido</label>
+
+  <ion-item>
+    <ion-label floating>Nombre de usuario</ion-label>
+    <ion-input type="password" formControlName="psw"></ion-input>
+  </ion-item>
+  <label class="input-error" *ngIf="singupForm.get('psw').dirty && singupForm.get('psw').hasError('required')">*Este campo es requerido</label>
+
+  <br>
+  <button type="submit" ion-button block color="primary">Registrarse</button>
+
+</form>

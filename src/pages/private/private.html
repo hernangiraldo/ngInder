@@ -1,0 +1,23 @@
+<ion-menu [content]="privatecontent">
+    <ion-content>
+      <div class="profile-picture" menuClose (click)="goTo(1)">
+        <div class="image"></div>
+        <span>Nombre de usuario</span>
+      </div>
+
+      <ion-list class="menu">
+          <button ion-item menuClose (click)="goTo(2)">
+            Dashboard
+          </button>  
+        </ion-list>
+
+      <ion-list class="close-session">
+        <button ion-item (click)="logout()">
+          Cerrar sesión
+        </button>  
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-nav #privatecontent [root]="privateRootPage"></ion-nav>
+  

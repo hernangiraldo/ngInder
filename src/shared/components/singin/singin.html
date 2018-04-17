@@ -1,0 +1,20 @@
+<h2>Iniciar sesión</h2>
+
+<form [formGroup]="loginForm" novalidate (ngSubmit)="singIn()">
+  
+  <ion-item>
+    <ion-label floating>Nombre de usuario</ion-label>
+    <ion-input type="text" formControlName="user"></ion-input>
+  </ion-item>
+  <label class="input-error" *ngIf="loginForm.get('user').dirty && loginForm.get('user').hasError('required')">*Este campo es requerido</label>
+  
+  <ion-item>
+    <ion-label floating>Contraseña</ion-label>
+    <ion-input type="password" formControlName="psw"></ion-input>
+  </ion-item>
+  <label class="input-error" *ngIf="loginForm.get('psw').dirty && loginForm.get('psw').hasError('required')">*Este campo es requerido</label>
+
+  <br>
+  <button type="submit" ion-button block color="primary" [disabled]="!loginForm.valid">Ingresar</button>
+
+</form>
