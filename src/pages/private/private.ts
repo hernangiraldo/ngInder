@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+
+import { iUser } from './../../interfaces/user';
 
 @IonicPage()
 @Component({
@@ -9,10 +11,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PrivatePage {
 
   privateRootPage: any;
+  currentUser: iUser;
 
   constructor(
     public navCtrl: NavController
   ) {
+    this.currentUser = JSON.parse(localStorage.getItem('loggedUser'));
   }
 
   ionViewDidLoad() {
@@ -29,6 +33,8 @@ export class PrivatePage {
   }
 
   logout() {
+    localStorage.setItem('auth', 'false');
+    localStorage.setItem('loggedUser', '');
     this.navCtrl.setRoot('HomePage');
   }
 

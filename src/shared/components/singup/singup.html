@@ -16,12 +16,12 @@
   <label class="input-error" *ngIf="singupForm.get('email').dirty && singupForm.get('email').touched && singupForm.get('email').hasError('pattern')">*Correo inválido</label>
 
   <ion-item>
-    <ion-label floating>Nombre de usuario</ion-label>
+    <ion-label floating>Contraseña</ion-label>
     <ion-input type="password" formControlName="psw"></ion-input>
   </ion-item>
   <label class="input-error" *ngIf="singupForm.get('psw').dirty && singupForm.get('psw').hasError('required')">*Este campo es requerido</label>
 
   <br>
-  <button type="submit" ion-button block color="primary">Registrarse</button>
+  <button type="submit" ion-button block color="primary" [disabled]="!singupForm.valid">Registrarse</button>
 
 </form>

@@ -30,6 +30,9 @@ export class SinginComponent {
     const validUser = this._userProvider.singin(this.loginForm.value);
 
     if (this.loginForm.valid && validUser) {
+      const savedUser = localStorage.getItem('user');
+      localStorage.setItem('auth', 'true');
+      localStorage.setItem('loggedUser', savedUser);
       this.navCtrl.setRoot('PrivatePage');
     } else {
       let toast = this.toastCtrl.create({
@@ -38,6 +41,10 @@ export class SinginComponent {
       });
       toast.present();
     }
+  }
+
+  recoverPassword() {
+    this.navCtrl.push('RecoverPasswordPage');
   }
 
 }

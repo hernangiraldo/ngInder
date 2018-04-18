@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { REGEX_EMAIL } from './../../../providers/utils/utils'
 
@@ -13,6 +13,7 @@ export class SingupComponent {
   singupForm: FormGroup;
 
   constructor(
+    private navCtrl: NavController,
     private formBuilder: FormBuilder
   ) {
     
@@ -24,7 +25,11 @@ export class SingupComponent {
   }
 
   singUp() {
-    console.log(this.singupForm);
+    if (this.singupForm.valid) {
+      localStorage.setItem('auth', 'true');
+      localStorage.setItem('loggedUser', JSON.stringify(this.singupForm.value));
+      this.navCtrl.setRoot('PrivatePage');
+    }
   }
 
 }

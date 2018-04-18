@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the DashboardPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { UserProvider } from './../../providers/user/user';
 
 @IonicPage()
 @Component({
@@ -15,11 +10,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DashboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  randomUser: any;
+
+  constructor(
+    private _userProvider: UserProvider
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
+    this.getRandomUser();
+  }
+
+  getRandomUser() {
+    this._userProvider.getRandomUser()
+      .subscribe( data => {
+        this.randomUser = {
+          name: data['results'][0]['name']['first'] + ' ' + data['results'][0]['name']['last'],
+          picture: data['results'][0]['picture']['large']
+        };
+      });
   }
 
 }

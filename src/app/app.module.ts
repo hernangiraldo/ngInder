@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { UserProvider } from '../providers/user/user';
@@ -15,7 +16,8 @@ import { UserProvider } from '../providers/user/user';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

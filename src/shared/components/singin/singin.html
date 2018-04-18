@@ -13,7 +13,10 @@
     <ion-input type="password" formControlName="psw"></ion-input>
   </ion-item>
   <label class="input-error" *ngIf="loginForm.get('psw').dirty && loginForm.get('psw').hasError('required')">*Este campo es requerido</label>
+  <br>
+  <span class="recover" (click)="recoverPassword()">Recuperar Contraseña</span>
 
+  <br>
   <br>
   <button type="submit" ion-button block color="primary" [disabled]="!loginForm.valid">Ingresar</button>
 
